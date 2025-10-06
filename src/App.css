@@ -21,6 +21,45 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
+}
+
+/* Pop in, then gently glow */
+.success {
+  display: inline-block;
+  padding: .5rem .9rem;
+  border-radius: .6rem;
+  color: #0f5132;
+  background: #d1fae5;               /* mint */
+  border: 2px solid #34d399;         /* green */
+  animation: pop 380ms ease-out, glow 1.4s ease-in-out 380ms infinite alternate;
+}
+
+@keyframes pop {
+  0%   { transform: scale(.8); opacity: 0; }
+  60%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 0 rgba(52,211,153,0.0); }
+  to   { box-shadow: 0 0 24px rgba(52,211,153,0.55); }
+}
+
+/* optional: subtle confetti sparkles */
+.success::after {
+  content: "✨";
+  margin-left: .4rem;
+  animation: sparkle .9s ease-in-out 380ms infinite alternate;
+}
+@keyframes sparkle {
+  from { filter: drop-shadow(0 0 0 rgba(255,215,0,.0)); transform: rotate(-10deg); }
+  to   { filter: drop-shadow(0 0 6px rgba(255,215,0,.8)); transform: rotate(10deg); }
+}
+
+.historyButton{
+  background-color: rgb(12, 17, 31);
+  font-size: 12px;
+  text-decoration: underline;
 }
 
