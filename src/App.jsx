@@ -12,13 +12,13 @@ function App() {
   const [winnerNumber, setWinnerNumber] = useState(() => randomNumber(1, 100));
   const [historyOpen, setHistoryOpen] = useState(false);
   const [sessions, setSessions] = useState([]);
-
-  
+  const [winnerName, setWinnerName] = useState("");
 
   const handleClick = () => {
 
     if (mode === "name") {
       setPlayerName(`Welcome ${input.trim()}`);
+      setWinnerName(input.trim());
       setAttemps(0);
       setMode("guess");
       setInput("");
@@ -29,15 +29,14 @@ function App() {
       const nextAttempts = (attemps ?? 0) + 1;
       setAttemps(nextAttempts)
 
-      const now = new Date();
-      now.toLocaleDateString();
-      now.toLocaleString();
+      const date = new Date().toLocaleDateString();
+
 
       if (guess === winnerNumber) {
         const wins = {
-          Name: playerName,
+          Name: winnerName,
           Attemps: nextAttempts,
-          Date: now
+          When: date
         };
         setSessions(prev => [...prev, wins]);
       }
@@ -47,6 +46,19 @@ function App() {
     }
   }
 
+  const playAgain = () => {
+    setPlayerName("");
+    setAttemps(null);
+    setMode("name");
+    setInput("");
+    setGuess(null);
+    setWinnerNumber(randomNumber(1, 100));
+  }
+
+  const deleteSession = (index) => {
+    setSessions(prev => prev.filter((_, i) => i !== index));
+  }
+ 
   function guessNumber () {
     if (guess === null) return <p></p>;
     if (guess === winnerNumber) return <p className='success'>🎉 You succesfully guessed the number</p>;
@@ -58,29 +70,34 @@ function App() {
   function showHistory() {
 
     if (sessions.length === 0) {
-      return <section>
+      return <section className='noHistory'>
         <h3>You don't have a game history yet</h3>
         <p>Play some games now!</p>
       </section>
     } else {
-    return <section>
-      <h2>Game History</h2>
-      <div>
-        <label>Name</label>
-        <label>Attemps</label>
-        <label>Date Played</label>
-      </div>
+    return <table className='gameHistory'>
+      <caption><h2>Game History</h2></caption>
+      <thead>
+        <tr className='historyLabels'>
+          <th>Name</th>
+          <th>Attemps</th>
+          <th>Date Played</th>
+        </tr>
+      </thead>
 
-      <div>
+      <tbody>
         {sessions.map((i, idx) => (
-          <div key={idx}>
-            <p>{i.Name}</p>
-            <p>{i.Attemps}</p>
-            <p>{i.Date}</p>
-          </div>
+          <tr className='winnerInfo' key={idx}>
+            <td>{i.Name}</td>
+            <td>{i.Attemps}</td>
+            <td>{i.When}</td>
+            <button className='delete'onClick={() => deleteSession(idx)}
+            >Delete</button>
+          </tr>
         ))}
-      </div>
-    </section>
+      </tbody>
+      <button onClick={playAgain}>Play Again</button>
+    </table>
     }
   };
 

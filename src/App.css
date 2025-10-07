@@ -14,7 +14,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .contentContainer{
@@ -61,5 +60,56 @@
   background-color: rgb(12, 17, 31);
   font-size: 12px;
   text-decoration: underline;
+}
+
+.gameHistory{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: white;
+  background-color: rgb(25, 30, 44);
+  border-radius: 10px;
+  padding: 20px 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.historyLabels{
+  display: flex;
+  justify-content: space-between;
+  width: 340px;
+  font-weight: bold;
+}
+
+.winnerInfo{
+  display: flex;
+  justify-content: space-between;
+  width: 340px;
+  background-color: rgb(12, 17, 31);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.winnerInfo td {
+  display: flex;
+  align-items: center;
+  padding: 6px 0px;
+}
+
+.delete {
+  background-color: rgb(179, 1, 1);
+  padding: 4px 10px;
+}
+
+.noHistory{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(25, 30, 44);
+  border-radius: 10px;
+  padding: 20px 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
