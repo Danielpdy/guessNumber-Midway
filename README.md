@@ -1,16 +1,42 @@
-# React + Vite
+## New Features Added
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 1. **Difficulty Levels**
+- **Easy**: 1-50 (50 base points)
+- **Medium**: 1-100 (100 base points)
+- **Hard**: 1-500 (200 base points)
 
-Currently, two official plugins are available:
+### 2. **Hint System**
+- Get up to 2 hints per game
+- First hint: Tells if number is ODD or EVEN
+- Second hint: Tells if number is in upper or lower half
+- Each hint costs 10 points
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 3. **Scoring System**
+- Earn points based on difficulty level
+- Lose 5 points per attempt
+- Lose 10 points per hint used
+- View your score after each win
 
-## React Compiler
+### 4. **Statistics Dashboard**
+Track your performance:
+- Total games played
+- Average attempts per game
+- Best game (fewest attempts)
+- Total points earned
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 5. **Game History**
+- See all completed games in a table
+- Shows name, attempts, difficulty, score, and date
+- Delete individual game records
+- Sorted by highest score first
 
-## Expanding the ESLint configuration
+### 6. **Dark/Light Mode**
+- Toggle between themes with the 🌙/☀️ button
+- Smooth transitions and theme-aware colors
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 7. **UI Improvements**
+- Modern gradient designs
+- Celebration animations when you win 🎊
+- Color-coded feedback (green for success, orange for hints)
+- Responsive design for mobile devices
+- Enter key support for faster gameplay
